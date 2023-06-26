@@ -9,8 +9,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 //@NamedQuery(name="CartItem.deleteCartItem", query="Delete from CartItem c where c.userId =: userId and c.prod_id")
-@NamedQuery(name = "CartItem.findByUserId", query ="select new com.retailApp.CartService.Pojo.CartItemWrapper(c.cartItemid,c.prod_id,c.prod_name,c.prod_price,c.prod_image,c.userId,c.prod_quantity,c.prod_desc) from CartItem c where c.userId =:userId")
-@NamedQuery(name = "CartItem.findInCart", query ="select new com.retailApp.CartService.Pojo.CartItemWrapper(c.cartItemid,c.prod_id,c.prod_name,c.prod_price,c.prod_image,c.userId) from CartItem c where c.prod_id =:prod_id and c.userId=:userId")
+@NamedQuery(name = "CartItem.findByUserId", query ="select new com.retailApp.CartService.Pojo.CartItemWrapper(c.cartItemid,c.prod_id,c.prod_name,c.prod_price,c.prod_image,c.userId,c.prod_quantity,c.prod_desc,c.totalQuantity) from CartItem c where c.userId =:userId")
+@NamedQuery(name = "CartItem.findInCart", query ="select new com.retailApp.CartService.Pojo.CartItemWrapper(c.cartItemid,c.prod_id,c.prod_name,c.prod_price,c.prod_image,c.userId,c.totalQuantity) from CartItem c where c.prod_id =:prod_id and c.userId=:userId")
 //@NamedQuery(name = "CartItem.removeAllByUserId", query="Delete from CartItem c where c.userId =:userId")
 @Entity
 @Table(name = "cartItem")
@@ -42,13 +42,15 @@ public class CartItem {
 	  
 	  private String prod_desc;
 	  
+	  private Integer totalQuantity;
+	  
 
 	public CartItem() {
 		super();
 	}
 	
 
-	public CartItem(Integer cartItemid, Integer prod_id, String prod_name, Integer prod_price, String prod_image,Integer userId,Integer prod_quantity,String prod_desc) {
+	public CartItem(Integer cartItemid, Integer prod_id, String prod_name, Integer prod_price, String prod_image,Integer userId,Integer prod_quantity,String prod_desc, Integer totalQuantity) {
 		super();
 		this.cartItemid = cartItemid;
 		this.prod_id = prod_id;
@@ -58,11 +60,13 @@ public class CartItem {
 		this.userId = userId;
 		this.prod_quantity = prod_quantity;
 		this.prod_desc = prod_desc;
+		this.totalQuantity = totalQuantity;
+
 	}
 	
 
 
-	public CartItem(Integer prod_id, String prod_name, Integer prod_price, String prod_image, Integer userId,Integer prod_quantity) {
+	public CartItem(Integer prod_id, String prod_name, Integer prod_price, String prod_image, Integer userId,Integer prod_quantity, Integer totalQuantity) {
 		super();
 		this.prod_id = prod_id;
 		this.prod_name = prod_name;
@@ -70,6 +74,8 @@ public class CartItem {
 		this.prod_image = prod_image;
 		this.userId = userId;
 		this.prod_quantity= prod_quantity;
+		this.totalQuantity= totalQuantity;
+
 	}
 
 
@@ -80,6 +86,15 @@ public class CartItem {
 
 	public void setProd_quantity(Integer prod_quantity) {
 		this.prod_quantity = prod_quantity;
+	}
+	
+	public Integer gettotalQuantity() {
+		return totalQuantity;
+	}
+
+
+	public void settotalQuantity(Integer totalQuantity) {
+		this.totalQuantity = totalQuantity;
 	}
 
 

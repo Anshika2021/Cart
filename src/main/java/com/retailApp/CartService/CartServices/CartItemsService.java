@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.retailApp.CartService.Pojo.CartItem;
 import com.retailApp.CartService.Pojo.CartItemWrapper;
+
 
 public interface CartItemsService {
 
@@ -16,7 +18,10 @@ public interface CartItemsService {
 
 	ResponseEntity<List<CartItemWrapper>> getUserCart(Integer userId);
 
-	ResponseEntity<String> deleteCartItem(Integer id);
+	ResponseEntity<Integer> deleteCartItem(Integer id);
+	
+	Integer updateQuantity (List<CartItem> product);
+
 
 //	ResponseEntity<String> deleteAllByUserId(Integer userId);
 

@@ -15,6 +15,8 @@ public class CartItemWrapper {
 	  private Integer userId;
 	  private Integer prod_quantity;
 	  
+	  private Integer totalQuantity;
+	  
 	  
 
 	public CartItemWrapper() {
@@ -24,7 +26,7 @@ public class CartItemWrapper {
 	
 
 	public CartItemWrapper(Integer cartItemid, Integer prod_id, String prod_name, Integer prod_price, String prod_image,
-			Integer userId, Integer prod_quantity,String prod_desc) {
+			Integer userId, Integer prod_quantity,String prod_desc,Integer totalQuantity) {
 		super();
 		this.cartItemid = cartItemid;
 		this.prod_id = prod_id;
@@ -34,10 +36,11 @@ public class CartItemWrapper {
 		this.prod_desc = prod_desc;
 		this.userId = userId;
 		this.prod_quantity = prod_quantity;
+		this.totalQuantity= totalQuantity;
 	}
 	
 	public CartItemWrapper(Integer cartItemid, Integer prod_id, String prod_name, Integer prod_price, String prod_image,
-			Integer userId)
+			Integer userId,Integer totalQuantity)
 	{
 		this.cartItemid = cartItemid;
 		this.prod_id = prod_id;
@@ -45,6 +48,8 @@ public class CartItemWrapper {
 		this.prod_price = prod_price;
 		this.prod_image = prod_image;
 		this.userId = userId;
+		this.totalQuantity= totalQuantity;
+
 	}
 
 
@@ -69,6 +74,16 @@ public class CartItemWrapper {
 
 	public void setProd_quantity(Integer prod_quantity) {
 		this.prod_quantity = prod_quantity;
+	}
+
+	public Integer gettotalQuantity() {
+		return totalQuantity;
+	}
+
+
+
+	public void settotalQuantity(Integer totalQuantity) {
+		this.totalQuantity = totalQuantity;
 	}
 
 

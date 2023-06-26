@@ -17,6 +17,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -25,6 +27,9 @@ import com.retailApp.CartService.Pojo.CartItemWrapper;
 import com.retailApp.CartService.Repository.CartDao;
 
 public class CartDaoTest {
+	
+
+
     
     @Mock
     private CartDao cartDao;
@@ -95,5 +100,35 @@ public class CartDaoTest {
         assertThat(result).isNotNull();
         assertThat(result.getProd_name()).isEqualTo(cartItemWrapper.getProd_name());
     }
-}
     
+   
+//    @Test
+//    public void testRemoveAllByUserId() {
+//        Integer userId = 1;
+//
+//        ResponseEntity<Integer> cartItemWrapper1 = new CartItemWrapper();
+//        cartItemWrapper1.setUserId(userId);
+//        
+//      when(cartDao.removeAllByUserId(1)).thenReturn(cartItemWrapper1);
+//        
+//        CartItemWrapper result = cartDao.removeAllByUserId(1);
+//
+////        cartDao.add(cartItemWrapper1);
+////
+////        CartItemWrapper cartItemWrapper2 = new CartItemWrapper();
+////        cartItemWrapper2.setUserId(userId);
+////        List<CartItemWrapper> cartItemList = new ArrayList<>();
+////
+////        cartDao.save(cartItemWrapper2);
+//
+//        ResponseEntity<Integer> response = cartDao.removeAllByUserId(userId);
+//
+//        assertEquals(HttpStatus.OK, response.getStatusCode());
+//
+//        List<CartItemWrapper> cartItems = cartDao.findByUserId(userId);
+//        assertEquals(0, cartItems.size());
+//    }
+
+}
+ 
+

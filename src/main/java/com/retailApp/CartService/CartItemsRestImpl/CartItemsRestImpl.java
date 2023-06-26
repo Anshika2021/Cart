@@ -34,9 +34,21 @@ public class CartItemsRestImpl implements CartItemsRest {
 	}
 
 	@Override
-	public ResponseEntity<String> deleteCartItem(Integer id) {
+	public ResponseEntity<Integer> deleteCartItem(Integer id) {
 	return cartItemsService.deleteCartItem(id);
+	
 	}
+	
+	
+	@Override
+	public Integer updateQuantity(List<CartItem> product) {
+		// TODO Auto-generated method stub
+		return cartItemsService.updateQuantity(product);
+		
+		
+		
+	}
+	
 
 //	@Override
 //	public ResponseEntity<String> deleteAllByUserId(Integer userId) {
